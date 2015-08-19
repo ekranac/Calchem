@@ -6,4 +6,5 @@
     android:gravity="center|start"
     android:paddingLeft="10dp"
     android:id="@+id/li_text">
+
 </TextView>

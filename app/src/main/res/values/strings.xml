@@ -7,4 +7,10 @@
         <item>ml</item>
         <item>μl</item>
     </string-array>
+    
+    <string-array name="concentration_units">
+        <item>% (weight/volume)</item>
+        <item>% (volume/volume)</item>
+        <item>M</item>
+    </string-array>
 </resources>

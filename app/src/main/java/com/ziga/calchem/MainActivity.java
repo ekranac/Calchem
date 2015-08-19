@@ -4,8 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import org.lucasr.twowayview.TwoWayView;
 
@@ -22,42 +25,28 @@ public class MainActivity extends AppCompatActivity {
         totalVolumeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         totalVolumeSpinner.setAdapter(totalVolumeAdapter);
 
+        final Spinner concentrationSpinner = (Spinner) findViewById(R.id.concentration_spinner);
+        final ArrayAdapter<CharSequence> concentrationAdapter = ArrayAdapter.createFromResource(this, R.array.concentration_units, android.R.layout.simple_spinner_item);
+        concentrationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        concentrationSpinner.setAdapter(concentrationAdapter);
+
+        concentrationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String unit = concentrationSpinner.getSelectedItem().toString();
+                TextView desiredConcentrationUnit = (TextView) findViewById(R.id.desired_concentration_unit);
+                desiredConcentrationUnit.setText(unit);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         TwoWayView view = (TwoWayView) findViewById(R.id.lvItems);
-
-        String[] content =
-                {
-                        "Jebi",
-                        "Ga",
-                        "A ne",
-                        "Jebi",
-                        "Ga",
-                        "A ne",
-                        "Jebi",
-                        "Ga",
-                        "A ne",
-                        "Jebi",
-                        "Ga",
-                        "A ne",
-                        "Jebi",
-                        "Ga",
-                        "A ne",
-                        "Jebi",
-                        "Ga",
-                        "A ne",
-                        "Jebi",
-                        "Ga",
-                        "A ne"
-                };
-
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this,
-                R.layout.list_item,
-                content
-        );
-
-        view.setAdapter(adapter);
+        TextView noComponents = (TextView) findViewById(R.id.components_empty);
+        view.setEmptyView(noComponents);
 
     }
 
