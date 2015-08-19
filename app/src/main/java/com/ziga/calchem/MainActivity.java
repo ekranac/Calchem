@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import org.lucasr.twowayview.TwoWayView;
 
@@ -15,6 +16,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Spinner totalVolumeSpinner = (Spinner) findViewById(R.id.total_volume_spinner);
+        ArrayAdapter<CharSequence> totalVolumeAdapter = ArrayAdapter.createFromResource(this, R.array.total_volume_units, android.R.layout.simple_spinner_item);
+        totalVolumeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        totalVolumeSpinner.setAdapter(totalVolumeAdapter);
+
+        TwoWayView view = (TwoWayView) findViewById(R.id.lvItems);
 
         String[] content =
                 {
@@ -41,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         "A ne"
                 };
 
-        TwoWayView view = (TwoWayView) findViewById(R.id.lvItems);
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this,
@@ -69,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
         }
 
         return super.onOptionsItemSelected(item);

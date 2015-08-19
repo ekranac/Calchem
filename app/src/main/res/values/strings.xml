@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Calchem</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="total_volume_units">
+        <item>ml</item>
+        <item>μl</item>
+    </string-array>
 </resources>
