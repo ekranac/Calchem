@@ -7,35 +7,60 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
+        <EditText
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:inputType="numberDecimal"
+            android:hint="Total volume"/>
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:inputType="numberDecimal"
-                android:hint="Total volume"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/total_volume_spinner"/>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/total_volume_spinner"/>
+    </LinearLayout>
 
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="4">
 
+        <ListView
+            android:id="@+id/lvItems"
+            style="@style/TwoWayView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="No components yet"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:id="@+id/components_empty"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:orientation="vertical">
 
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:inputType="textCapSentences"
             android:hint="Component name"/>
 
         <LinearLayout
@@ -74,7 +99,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:gravity="center"
                 android:text="% (weight/volume)"
                 android:id="@+id/desired_concentration_unit"/>
@@ -86,35 +111,27 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="4">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
-        <org.lucasr.twowayview.TwoWayView
-            android:id="@+id/lvItems"
-            style="@style/TwoWayView"
-            android:layout_width="fill_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:drawSelectorOnTop="false"/>
+            android:layout_weight="1"
+            android:text="Add component"/>
 
-        <TextView
-            android:layout_width="fill_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:text="No components yet"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:id="@+id/components_empty"/>
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="Calculate"/>
 
     </LinearLayout>
 
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:text="Submit"/>
 
 </LinearLayout>

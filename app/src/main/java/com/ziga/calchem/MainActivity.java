@@ -7,10 +7,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.lucasr.twowayview.TwoWayView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TwoWayView view = (TwoWayView) findViewById(R.id.lvItems);
+        ListView list = (ListView) findViewById(R.id.lvItems);
         TextView noComponents = (TextView) findViewById(R.id.components_empty);
-        view.setEmptyView(noComponents);
+        list.setEmptyView(noComponents);
 
     }
 
