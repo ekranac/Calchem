@@ -32,21 +32,23 @@
         android:orientation="vertical"
         android:layout_weight="4">
 
-        <ListView
-            android:id="@+id/lvItems"
+        <android.support.v7.widget.RecyclerView
             style="@style/TwoWayView"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:drawSelectorOnTop="false"/>
+            android:drawSelectorOnTop="false"
+            android:scrollbars="horizontal"
+            android:fadeScrollbars="true"
+            android:id="@+id/list_components"/>
 
-        <TextView
+        <!--<TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:text="No components yet"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="20sp"
-            android:id="@+id/components_empty"/>
+            android:id="@+id/components_empty"/>-->
 
     </LinearLayout>
 
@@ -61,7 +63,8 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:inputType="textCapSentences"
-            android:hint="Component name"/>
+            android:hint="Component name"
+            android:id="@+id/input_name"/>
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -74,7 +77,8 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:inputType="numberDecimal"
-                android:hint="Stock concentration"/>
+                android:hint="Stock concentration"
+                android:id="@+id/input_concentration"/>
 
             <Spinner
                 android:layout_width="wrap_content"
@@ -94,7 +98,8 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:inputType="numberDecimal"
-                android:hint="Desired concentration"/>
+                android:hint="Desired concentration"
+                android:id="@+id/input_desired_concentration"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -122,7 +127,8 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Add component"/>
+            android:text="Add component"
+            android:id="@+id/add_component"/>
 
         <Button
             android:layout_width="wrap_content"
