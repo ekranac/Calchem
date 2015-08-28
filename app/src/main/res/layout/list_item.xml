@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
+    android:orientation="vertical" android:layout_width="250dp"
     android:layout_height="match_parent"
     android:layout_marginRight="20dp">
 
     <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/cv">
 
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:padding="10dp">
+
+        <View
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/abc_ic_clear_mtrl_alpha"
+            android:backgroundTint="#aabbcc"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:id="@+id/close_view"/>
 
         <me.grantland.widget.AutofitLayout
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/name_layout">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:id="@+id/component_name"/>
 
         </me.grantland.widget.AutofitLayout>
 
         <me.grantland.widget.AutofitLayout
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/name_layout"
             android:id="@+id/concentration_layout">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:id="@+id/concentration"/>
@@ -43,16 +51,31 @@
         </me.grantland.widget.AutofitLayout>
 
         <me.grantland.widget.AutofitLayout
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/concentration_layout">
+            android:layout_below="@id/concentration_layout"
+            android:id="@+id/desired_concentration_layout">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:layout_below="@id/concentration"
             android:id="@+id/desired_concentration"/>
+
+        </me.grantland.widget.AutofitLayout>
+
+        <me.grantland.widget.AutofitLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desired_concentration_layout">
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_below="@id/concentration"
+                android:id="@+id/unit"/>
 
         </me.grantland.widget.AutofitLayout>
 

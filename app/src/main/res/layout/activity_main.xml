@@ -41,15 +41,6 @@
             android:fadeScrollbars="true"
             android:id="@+id/list_components"/>
 
-        <!--<TextView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="No components yet"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:id="@+id/components_empty"/>-->
-
     </LinearLayout>
 
     <LinearLayout
@@ -78,6 +69,7 @@
                 android:textSize="20sp"
                 android:inputType="numberDecimal"
                 android:hint="Stock concentration"
+                android:maxLength="3"
                 android:id="@+id/input_concentration"/>
 
             <Spinner
@@ -99,6 +91,7 @@
                 android:textSize="20sp"
                 android:inputType="numberDecimal"
                 android:hint="Desired concentration"
+                android:maxLength="3"
                 android:id="@+id/input_desired_concentration"/>
 
             <TextView
@@ -135,7 +128,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:enabled="false"
-            android:text="Calculate"/>
+            android:text="Calculate"
+            android:id="@+id/btn_calculate"/>
 
     </LinearLayout>
 

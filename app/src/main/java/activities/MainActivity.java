@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,13 +26,14 @@ import models.Component;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView componentsList;
+    ArrayList<Component> components;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ArrayList<Component> components = new ArrayList<Component>();
+        components = new ArrayList<Component>();
 
         componentsList = (RecyclerView) findViewById(R.id.list_components);
         componentsList.setHasFixedSize(true);
@@ -81,8 +83,13 @@ public class MainActivity extends AppCompatActivity {
 
                     ComponentsAdapter adapter = new ComponentsAdapter(MainActivity.this, components);
                     componentsList.setAdapter(adapter);
+                    componentsList.getLayoutManager().scrollToPosition(components.size()-1);
 
-                    componentsList.smoothScrollToPosition(components.size()-1);
+                    if(components.size() > 1)
+                    {
+                        Button calcualateBtn = (Button) findViewById(R.id.btn_calculate);
+                        calcualateBtn.setEnabled(true);
+                    }
                 }
 
             }
