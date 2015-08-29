@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.ziga.calchem.R;
 
-public class ComponentViewHolder extends RecyclerView.ViewHolder
+public class ComponentHolder extends RecyclerView.ViewHolder
 {
     public TextView componentName;
     public TextView stockConcentration;
@@ -16,7 +16,7 @@ public class ComponentViewHolder extends RecyclerView.ViewHolder
     public View closeView;
     public Integer cardPosition;
 
-    public ComponentViewHolder(View itemView, Integer position)
+    public ComponentHolder(View itemView, Integer position)
     {
         super(itemView);
         componentName = (TextView) itemView.findViewById(R.id.component_name);

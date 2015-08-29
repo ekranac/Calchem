@@ -1,5 +1,6 @@
 package activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import com.ziga.calchem.R;
 import java.util.ArrayList;
 
 import adapters.ComponentsAdapter;
+import helpers.Constants;
 import models.Component;
 
 
@@ -87,11 +89,22 @@ public class MainActivity extends AppCompatActivity {
 
                     if(components.size() > 1)
                     {
-                        Button calcualateBtn = (Button) findViewById(R.id.btn_calculate);
-                        calcualateBtn.setEnabled(true);
+                        Button calcualteButton = (Button) findViewById(R.id.btn_calculate);
+                        calcualteButton.setEnabled(true);
                     }
                 }
 
+            }
+        });
+
+        Button calcualteButton = (Button) findViewById(R.id.btn_calculate);
+        calcualteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(MainActivity.this, CalculationActivity.class);
+                intent.putExtra(Constants.COMPONENTS, components);
+                startActivity(intent);
             }
         });
     }

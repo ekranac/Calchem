@@ -2,7 +2,6 @@ package adapters;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +12,10 @@ import com.ziga.calchem.R;
 
 import java.util.ArrayList;
 
-import activities.MainActivity;
 import models.Component;
-import models.ComponentViewHolder;
+import models.ComponentHolder;
 
-public class ComponentsAdapter extends RecyclerView.Adapter<ComponentViewHolder>
+public class ComponentsAdapter extends RecyclerView.Adapter<ComponentHolder>
 {
     Activity activity;
     ArrayList<Component> components;
@@ -40,17 +38,17 @@ public class ComponentsAdapter extends RecyclerView.Adapter<ComponentViewHolder>
     }
 
     @Override
-    public ComponentViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    public ComponentHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
     {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View itemView = inflater.inflate(R.layout.list_item, viewGroup, false);
 
-        ComponentViewHolder holder = new ComponentViewHolder(itemView, null);
+        ComponentHolder holder = new ComponentHolder(itemView, null);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(ComponentViewHolder holder, final int position)
+    public void onBindViewHolder(ComponentHolder holder, final int position)
     {
         Component component = components.get(position);
 

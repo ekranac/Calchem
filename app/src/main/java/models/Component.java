@@ -1,6 +1,8 @@
 package models;
 
-public class Component
+import java.io.Serializable;
+
+public class Component implements Serializable
 {
     String name;
     Double concentration;
