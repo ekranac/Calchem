@@ -19,11 +19,13 @@ public class ComponentsAdapter extends RecyclerView.Adapter<ComponentHolder>
 {
     Activity activity;
     ArrayList<Component> components;
+    Boolean closeable;
 
-    public ComponentsAdapter(Activity activity, ArrayList<Component> components)
+    public ComponentsAdapter(Activity activity, ArrayList<Component> components, Boolean closeable)
     {
         this.activity = activity;
         this.components = components;
+        this.closeable = closeable;
     }
 
     @Override
@@ -53,9 +55,9 @@ public class ComponentsAdapter extends RecyclerView.Adapter<ComponentHolder>
         Component component = components.get(position);
 
         String componentTxt = component.getName();
-        String concentrationTxt = "Stock concentration: " + component.getConcentration();
-        String desiredConcentrationTxt = "Desired concentration: " + component.getDesiredConcentration();
-        String unit = "Units: " + component.getUnits();
+        String concentrationTxt = activity.getResources().getString(R.string.stock_concentration) +  component.getConcentration();
+        String desiredConcentrationTxt = activity.getResources().getString(R.string.desired_concentration) + component.getDesiredConcentration();
+        String unit = activity.getResources().getString(R.string.units) + component.getUnits();
 
         holder.componentName.setText(componentTxt);
         holder.stockConcentration.setText(concentrationTxt);
@@ -63,21 +65,29 @@ public class ComponentsAdapter extends RecyclerView.Adapter<ComponentHolder>
         holder.unitTextView.setText(unit);
         holder.cardPosition = position;
 
-        holder.closeView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                components.remove(position);
-                notifyDataSetChanged();
-
-                Toast.makeText(activity.getBaseContext(), "Removed", Toast.LENGTH_SHORT).show();
-
-                if(components.size() < 2)
+        if(closeable)
+        {
+            holder.closeView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view)
                 {
-                    Button calcualateBtn = (Button) activity.findViewById(R.id.btn_calculate);
-                    calcualateBtn.setEnabled(false);
+                    components.remove(position);
+                    notifyDataSetChanged();
+
+                    Toast.makeText(activity.getBaseContext(), activity.getResources().getString(R.string.removed), Toast.LENGTH_SHORT).show();
+
+                    if(components.size() < 2)
+                    {
+                        Button calcualateBtn = (Button) activity.findViewById(R.id.btn_calculate);
+                        calcualateBtn.setEnabled(false);
+                    }
                 }
-            }
-        });
+            });
+        }
+        else
+        {
+            holder.closeView.setVisibility(View.GONE);
+        }
+
     }
 }

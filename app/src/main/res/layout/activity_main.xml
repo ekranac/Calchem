@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context=".MainActivity"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="@dimen/size_10"
     android:focusable="true">
 
     <LinearLayout
@@ -12,12 +12,12 @@
         android:orientation="horizontal">
 
         <EditText
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="30sp"
+            android:textSize="@dimen/font_30"
             android:inputType="numberDecimal"
-            android:hint="Total volume"
+            android:hint="@string/total_volume"
             android:id="@+id/input_total_volume"/>
 
         <Spinner
@@ -29,33 +29,30 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/size_0"
         android:orientation="vertical"
         android:layout_weight="4">
 
         <android.support.v7.widget.RecyclerView
-            style="@style/TwoWayView"
+            style="@style/recycler_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:drawSelectorOnTop="false"
-            android:scrollbars="horizontal"
-            android:fadeScrollbars="true"
             android:id="@+id/list_components"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/size_0"
         android:layout_weight="6"
         android:orientation="vertical">
 
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="@dimen/font_20"
             android:inputType="textCapSentences"
-            android:hint="Component name"
+            android:hint="@string/component_name"
             android:id="@+id/input_name"/>
 
         <LinearLayout
@@ -64,12 +61,12 @@
             android:orientation="horizontal">
 
             <EditText
-                android:layout_width="0dp"
+                android:layout_width="@dimen/size_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="@dimen/font_20"
                 android:inputType="numberDecimal"
-                android:hint="Stock concentration"
+                android:hint="@string/stock_concentration"
                 android:id="@+id/input_concentration"/>
 
             <Spinner
@@ -85,20 +82,19 @@
             android:orientation="horizontal">
 
             <EditText
-                android:layout_width="0dp"
+                android:layout_width="@dimen/size_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="@dimen/font_20"
                 android:inputType="numberDecimal"
-                android:hint="Desired concentration"
+                android:hint="@string/desired_concentration"
                 android:id="@+id/input_desired_concentration"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:textSize="15sp"
+                android:textSize="@dimen/font_15"
                 android:gravity="center"
-                android:text="% (weight/volume)"
                 android:id="@+id/desired_concentration_unit"/>
 
         </LinearLayout>
@@ -119,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Add component"
+            android:text="@string/add_component"
             android:id="@+id/add_component"/>
 
         <Button
@@ -127,7 +123,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:enabled="false"
-            android:text="Calculate"
+            android:text="@string/calculate"
             android:id="@+id/btn_calculate"/>
 
     </LinearLayout>

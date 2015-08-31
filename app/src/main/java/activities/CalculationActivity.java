@@ -41,13 +41,14 @@ public class CalculationActivity extends AppCompatActivity
         String totalVolumeUnits = intent.getStringExtra(Constants.TOTAL_VOLUME_UNITS);
 
         TextView tvTotalVolume = (TextView) findViewById(R.id.total_volume);
-        tvTotalVolume.setText("Total volume: " + totalVolume + " " + totalVolumeUnits);
+        String text = getResources().getString(R.string.total_volume) + ": " +  totalVolume + " " + totalVolumeUnits;
+        tvTotalVolume.setText(text);
 
         ArrayList<HashMap> components = new ArrayList<HashMap>();
         map = new HashMap();
-        map.put(Constants.FIRST_COLUMN, "Name");
-        map.put(Constants.SECOND_COLUMN, "Result");
-        map.put(Constants.THIRD_COLUMN, "Units");
+        map.put(Constants.FIRST_COLUMN, getResources().getString(R.string.name));
+        map.put(Constants.SECOND_COLUMN, getResources().getString(R.string.result));
+        map.put(Constants.THIRD_COLUMN, getResources().getString(R.string.units));
         components.add(map);
 
 
@@ -85,7 +86,7 @@ public class CalculationActivity extends AppCompatActivity
         }
 
         TextView tvVolumeLeft = (TextView) findViewById(R.id.volume_left);
-        tvVolumeLeft.setText("Volume left: " + Double.toString(volumeLeft) + " " + totalVolumeUnits);
+        tvVolumeLeft.setText(getResources().getString(R.string.volume_left) + ": " + Double.toString(volumeLeft) + " " + totalVolumeUnits);
 
         CalculationsAdapter adapter = new CalculationsAdapter(this, components);
         ListView list = (ListView) findViewById(R.id.listed_components);
@@ -96,7 +97,7 @@ public class CalculationActivity extends AppCompatActivity
         final LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         componentsList.setLayoutManager(llm);
 
-        ComponentsAdapter componentsAdapter = new ComponentsAdapter(this, extraComponents);
+        ComponentsAdapter componentsAdapter = new ComponentsAdapter(this, extraComponents, false);
         componentsList.setAdapter(componentsAdapter);
     }
 }

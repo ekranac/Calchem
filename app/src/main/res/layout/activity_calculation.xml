@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/size_10">
 
     <ListView
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="@dimen/size_0"
+        android:layout_weight="2"
         android:id="@+id/listed_components"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/size_0"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:layout_marginTop="@dimen/size_10"
         android:id="@+id/calculated_components">
 
-        <TextView
+        <me.grantland.widget.AutofitTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="@dimen/font_30"
             android:id="@+id/total_volume"/>
 
-        <TextView
+        <me.grantland.widget.AutofitTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="@dimen/font_20"
             android:id="@+id/volume_left"/>
 
 
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        style="@style/TwoWayView"
+        style="@style/recycler_view"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/size_0"
         android:layout_weight="1"
-        android:drawSelectorOnTop="false"
-        android:scrollbars="horizontal"
-        android:fadeScrollbars="true"
         android:id="@+id/list_components"/>
 
 

@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -52,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         concentrationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         concentrationSpinner.setAdapter(concentrationAdapter);
 
+        String unit = concentrationSpinner.getSelectedItem().toString();
+        TextView desiredConcentrationUnit = (TextView) findViewById(R.id.desired_concentration_unit);
+        desiredConcentrationUnit.setText(unit);
+
         concentrationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -82,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     Component component = new Component(name, Double.parseDouble(stockConcentration), Double.parseDouble(desiredConcentration), unit);
                     components.add(component);
 
-                    ComponentsAdapter adapter = new ComponentsAdapter(MainActivity.this, components);
+                    ComponentsAdapter adapter = new ComponentsAdapter(MainActivity.this, components, true);
                     componentsList.setAdapter(adapter);
                     componentsList.getLayoutManager().scrollToPosition(components.size() - 1);
 
@@ -121,19 +124,5 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if(id == R.id.action_settings) {}
-
-        return super.onOptionsItemSelected(item);
     }
 }
