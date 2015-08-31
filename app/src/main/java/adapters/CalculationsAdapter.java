@@ -2,6 +2,7 @@ package adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,10 +64,19 @@ public class CalculationsAdapter extends BaseAdapter
         holder.concentration = (TextView) convertView.findViewById(R.id.row_result);
         holder.units = (TextView) convertView.findViewById(R.id.row_units);
 
+        if(position==0)
+        {
+            holder.componentName.setTypeface(null, Typeface.BOLD);
+            holder.concentration.setTypeface(null, Typeface.BOLD);
+            holder.units.setTypeface(null, Typeface.BOLD);
+        }
+
         HashMap map = components.get(position);
         holder.componentName.setText(map.get(Constants.FIRST_COLUMN).toString());
         holder.concentration.setText(map.get(Constants.SECOND_COLUMN).toString());
         holder.units.setText(map.get(Constants.THIRD_COLUMN).toString());
+
+
 
         return convertView;
     }

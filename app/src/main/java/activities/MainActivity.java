@@ -78,17 +78,15 @@ public class MainActivity extends AppCompatActivity {
                 String desiredConcentration = inputDesiredConcentration.getText().toString();
                 String unit = concentrationSpinner.getSelectedItem().toString();
 
-                if(!name.equals("") && !stockConcentration.equals("") && !desiredConcentration.equals("") && unit!=null)
-                {
+                if (!name.equals("") && !stockConcentration.equals("") && !desiredConcentration.equals("") && unit != null) {
                     Component component = new Component(name, Double.parseDouble(stockConcentration), Double.parseDouble(desiredConcentration), unit);
                     components.add(component);
 
                     ComponentsAdapter adapter = new ComponentsAdapter(MainActivity.this, components);
                     componentsList.setAdapter(adapter);
-                    componentsList.getLayoutManager().scrollToPosition(components.size()-1);
+                    componentsList.getLayoutManager().scrollToPosition(components.size() - 1);
 
-                    if(components.size() > 1)
-                    {
+                    if (components.size() > 0) {
                         Button calcualteButton = (Button) findViewById(R.id.btn_calculate);
                         calcualteButton.setEnabled(true);
                     }
@@ -97,14 +95,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final EditText inputTotalVolume = (EditText) findViewById(R.id.input_total_volume);
+        final Spinner totalVolumeUnits = (Spinner) findViewById(R.id.total_volume_spinner);
+
         Button calcualteButton = (Button) findViewById(R.id.btn_calculate);
         calcualteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this, CalculationActivity.class);
-                intent.putExtra(Constants.COMPONENTS, components);
-                startActivity(intent);
+                if(!inputTotalVolume.getText().toString().equals(""))
+                {
+                    Intent intent = new Intent(MainActivity.this, CalculationActivity.class);
+                    intent.putExtra(Constants.COMPONENTS, components);
+                    intent.putExtra(Constants.TOTAL_VOLUME, inputTotalVolume.getText().toString());
+                    intent.putExtra(Constants.TOTAL_VOLUME_UNITS, totalVolumeUnits.getSelectedItem().toString());
+                    startActivity(intent);
+                }
             }
         });
     }

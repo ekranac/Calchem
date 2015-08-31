@@ -17,7 +17,8 @@
             android:layout_weight="1"
             android:textSize="30sp"
             android:inputType="numberDecimal"
-            android:hint="Total volume"/>
+            android:hint="Total volume"
+            android:id="@+id/input_total_volume"/>
 
         <Spinner
             android:layout_width="wrap_content"
@@ -69,7 +70,6 @@
                 android:textSize="20sp"
                 android:inputType="numberDecimal"
                 android:hint="Stock concentration"
-                android:maxLength="3"
                 android:id="@+id/input_concentration"/>
 
             <Spinner
@@ -91,7 +91,6 @@
                 android:textSize="20sp"
                 android:inputType="numberDecimal"
                 android:hint="Desired concentration"
-                android:maxLength="3"
                 android:id="@+id/input_desired_concentration"/>
 
             <TextView
