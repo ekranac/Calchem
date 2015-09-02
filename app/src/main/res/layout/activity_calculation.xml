@@ -23,14 +23,14 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:textSize="@dimen/font_30"
-            android:id="@+id/total_volume"/>
+            android:id="@+id/volume_left"/>
 
         <me.grantland.widget.AutofitTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:textSize="@dimen/font_20"
-            android:id="@+id/volume_left"/>
+            android:id="@+id/total_volume"/>
 
 
     </LinearLayout>

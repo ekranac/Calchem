@@ -76,7 +76,7 @@ public class ComponentsAdapter extends RecyclerView.Adapter<ComponentHolder>
 
                     Toast.makeText(activity.getBaseContext(), activity.getResources().getString(R.string.removed), Toast.LENGTH_SHORT).show();
 
-                    if(components.size() < 2)
+                    if(components.size() < 1)
                     {
                         Button calcualateBtn = (Button) activity.findViewById(R.id.btn_calculate);
                         calcualateBtn.setEnabled(false);
