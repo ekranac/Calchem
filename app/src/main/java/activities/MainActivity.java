@@ -90,9 +90,13 @@ public class MainActivity extends AppCompatActivity {
                     componentsList.getLayoutManager().scrollToPosition(components.size() - 1);
 
                     if (components.size() > 0) {
-                        Button calcualteButton = (Button) findViewById(R.id.btn_calculate);
-                        calcualteButton.setEnabled(true);
+                        Button calculateButton = (Button) findViewById(R.id.btn_calculate);
+                        calculateButton.setEnabled(true);
                     }
+
+                    inputName.setText("");
+                    inputConcentration.setText("");
+                    inputDesiredConcentration.setText("");
                 }
 
             }
@@ -101,12 +105,11 @@ public class MainActivity extends AppCompatActivity {
         final EditText inputTotalVolume = (EditText) findViewById(R.id.input_total_volume);
         final Spinner totalVolumeUnits = (Spinner) findViewById(R.id.total_volume_spinner);
 
-        Button calcualteButton = (Button) findViewById(R.id.btn_calculate);
-        calcualteButton.setOnClickListener(new View.OnClickListener() {
+        Button calculateButton = (Button) findViewById(R.id.btn_calculate);
+        calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                if(!inputTotalVolume.getText().toString().equals(""))
+            public void onClick(View view) {
+                if (!inputTotalVolume.getText().toString().equals(""))
                 {
                     Intent intent = new Intent(MainActivity.this, CalculationActivity.class);
                     intent.putExtra(Constants.COMPONENTS, components);
