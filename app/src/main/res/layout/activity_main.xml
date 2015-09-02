@@ -3,7 +3,8 @@
     android:layout_height="match_parent" tools:context=".MainActivity"
     android:orientation="vertical"
     android:padding="@dimen/size_10"
-    android:focusable="true">
+    android:focusable="true"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -116,6 +117,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="@string/add_component"
+            android:background="@color/white"
+            android:textColor="@color/dark_green"
             android:id="@+id/add_component"/>
 
         <Button
@@ -124,6 +127,8 @@
             android:layout_weight="1"
             android:enabled="false"
             android:text="@string/calculate"
+            android:background="@color/white"
+            android:textColor="@color/light_green"
             android:id="@+id/btn_calculate"/>
 
     </LinearLayout>

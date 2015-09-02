@@ -21,6 +21,7 @@
             android:backgroundTint="@color/dark_green"
             android:layout_alignParentRight="true"
             android:padding="5dp"
+            android:alpha="0.3"
             android:id="@+id/close_view"/>
 
         <me.grantland.widget.AutofitLayout
@@ -32,6 +33,7 @@
             android:layout_width="@dimen/size_250"
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_20"
+            android:textColor="@color/dark_green"
             android:id="@+id/component_name"/>
 
         </me.grantland.widget.AutofitLayout>
@@ -46,6 +48,7 @@
             android:layout_width="@dimen/size_250"
             android:layout_height="wrap_content"
             android:singleLine="true"
+            android:textColor="@color/light_green"
             android:id="@+id/concentration"/>
 
         </me.grantland.widget.AutofitLayout>
@@ -61,6 +64,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:layout_below="@id/concentration"
+            android:textColor="@color/light_green"
             android:id="@+id/desired_concentration"/>
 
         </me.grantland.widget.AutofitLayout>
@@ -75,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:layout_below="@id/concentration"
+                android:textColor="@color/light_green"
                 android:id="@+id/unit"/>
 
         </me.grantland.widget.AutofitLayout>

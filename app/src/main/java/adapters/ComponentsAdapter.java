@@ -55,9 +55,9 @@ public class ComponentsAdapter extends RecyclerView.Adapter<ComponentHolder>
         Component component = components.get(position);
 
         String componentTxt = component.getName();
-        String concentrationTxt = activity.getResources().getString(R.string.stock_concentration) +  component.getConcentration();
-        String desiredConcentrationTxt = activity.getResources().getString(R.string.desired_concentration) + component.getDesiredConcentration();
-        String unit = activity.getResources().getString(R.string.units) + component.getUnits();
+        String concentrationTxt = activity.getResources().getString(R.string.stock_concentration) + ": " +  component.getConcentration();
+        String desiredConcentrationTxt = activity.getResources().getString(R.string.desired_concentration) + ": " + component.getDesiredConcentration();
+        String unit = activity.getResources().getString(R.string.units) + ": " + component.getUnits();
 
         holder.componentName.setText(componentTxt);
         holder.stockConcentration.setText(concentrationTxt);

@@ -69,6 +69,15 @@ public class CalculationsAdapter extends BaseAdapter
             holder.componentName.setTypeface(null, Typeface.BOLD);
             holder.concentration.setTypeface(null, Typeface.BOLD);
             holder.units.setTypeface(null, Typeface.BOLD);
+
+            holder.componentName.setTextColor(activity.getResources().getColor(R.color.light_green));
+            holder.concentration.setTextColor(activity.getResources().getColor(R.color.light_green));
+            holder.units.setTextColor(activity.getResources().getColor(R.color.light_green));
+
+            holder.componentName.setAlpha(0.5f);
+            holder.concentration.setAlpha(0.5f);
+            holder.units.setAlpha(0.5f);
+
         }
 
         HashMap map = components.get(position);
